@@ -1,0 +1,148 @@
+<html><head>
+<title>PPOC Web</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='https://ppocteldesur.github.io/Img/logo.png' rel='shortcut icon' type='image/png'>
+  <link rel="stylesheet" href="estilo.css">
+  <script src="https://cdn.firebase.com/js/client/2.2.1/firebase.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+<body>
+
+<select id="fecha1">
+   <option value="Enero">Enero</option> 
+   <option value="Febrero">Febrero</option> 
+   <option value="Marzo">Marzo</option>
+   <option value="Abril">Abril</option> 
+   <option value="Mayo">Mayo</option> 
+   <option value="Junio">Junio</option> 
+   <option value="Julio">Julio</option> 
+   <option value="Agosto">Agosto</option> 
+   <option value="Septiembre">Septiembre</option> 
+   <option value="Octubre">Octubre</option> 
+   <option value="Noviembre">Novienbre</option> 
+   <option value="Diciembre">Diciembre</option> 
+</select>
+
+<select id="fecha2">
+   <option value="2018">2018</option> 
+   <option value="2019">2019</option> 
+   <option value="2020">2020</option> 
+   <option value="2021">2021</option> 
+   <option value="2022">2022</option> 
+   <option value="2023">2023</option> 
+   <option value="2024">2024</option> 
+   <option value="2025">2025</option> 
+   <option value="2026">2026</option> 
+   <option value="2027">2027</option> 
+   <option value="2028">2028</option> 
+   <option value="2029">2029</option> 
+   <option value="2030">2030</option> 
+</select>
+ <input type="submit" value="Mostrar" onclick="activar();">  
+               <br><br>
+
+<div class="example-base example-leaderboard">
+  <table id="leaderboardTable">
+    <tr>
+      <th>Responsable</th>
+      <th>Fecha</th>
+      <th>Turno</th>
+      <th>Revisitas</th>
+      <th>Libros</th>
+      <th>Tratados</th>
+      <th>Videos Presentados</th>
+      <th>Enlace Videos</th>
+      <th>Invitaciones</th>
+      <th>Tarjetas JW</th>
+      <th>Revistas</th>
+      <th>Folletos</th>
+      <th>Cursos Biblicos</th>
+      <th>Afluencias</th>
+      <th>Conversaciones</th>
+
+      <th>Comentarios</th>
+      <th>Experiencias</th>
+    </tr>
+  </table>
+</div>
+<script>
+
+function activar() {
+  var fecha1 = document.getElementById('fecha1').value;
+  var fecha2 = document.getElementById('fecha2').value;
+
+  var LEADERBOARD_SIZE = 5000000;
+  var _0x2e732e=_0x3e94;function _0x53f1(){var _0x53577f=['https://ppoc-telde-norte-base-de-datos-default-rtdb.firebaseio.com/','78483qSjSyu','876088OwgYaE','522248HknHTQ','8OwqzKv','197596isjhEJ','8780382LuSbRX','2812570rNLSnN','35TLXVti','1744110wYgSEJ'];_0x53f1=function(){return _0x53577f;};return _0x53f1();}(function(_0x2692bb,_0x3599fe){var _0x578ceb=_0x3e94,_0x2c8011=_0x2692bb();while(!![]){try{var _0x2f1a7a=parseInt(_0x578ceb(0x8c))/0x1+parseInt(_0x578ceb(0x8d))/0x2*(-parseInt(_0x578ceb(0x8a))/0x3)+parseInt(_0x578ceb(0x8e))/0x4+parseInt(_0x578ceb(0x90))/0x5+-parseInt(_0x578ceb(0x92))/0x6+parseInt(_0x578ceb(0x91))/0x7*(parseInt(_0x578ceb(0x8b))/0x8)+-parseInt(_0x578ceb(0x8f))/0x9;if(_0x2f1a7a===_0x3599fe)break;else _0x2c8011['push'](_0x2c8011['shift']());}catch(_0x50b23c){_0x2c8011['push'](_0x2c8011['shift']());}}}(_0x53f1,0x4be05));function _0x3e94(_0x5275bf,_0x1e1d35){var _0x53f15c=_0x53f1();return _0x3e94=function(_0x3e9417,_0x3a3941){_0x3e9417=_0x3e9417-0x8a;var _0x1991aa=_0x53f15c[_0x3e9417];return _0x1991aa;},_0x3e94(_0x5275bf,_0x1e1d35);}var scoreListRef=new Firebase(_0x2e732e(0x93)+fecha2+'/'+fecha1);
+
+  var htmlForPath = {};
+
+  function handleScoreAdded(scoreSnapshot, prevScoreName) {
+    var newScoreRow = $("<tr/>");
+    newScoreRow.append($("<td/>").append($("<em/>").text(scoreSnapshot.val().aResponsable)));
+    newScoreRow.append($("<td/>").text(scoreSnapshot.val().bFecha));
+    newScoreRow.append($("<td/>").text(scoreSnapshot.val().cTurno));
+    newScoreRow.append($("<td/>").text(scoreSnapshot.val().dRevisitas));
+    newScoreRow.append($("<td/>").text(scoreSnapshot.val().eLibros));
+    newScoreRow.append($("<td/>").text(scoreSnapshot.val().fTratados));
+    newScoreRow.append($("<td/>").text(scoreSnapshot.val().gVideoPresentados));
+    newScoreRow.append($("<td/>").text(scoreSnapshot.val().hEnlaceVideos));
+    newScoreRow.append($("<td/>").text(scoreSnapshot.val().iInvitaciones));
+    newScoreRow.append($("<td/>").text(scoreSnapshot.val().jTarjetasJW));
+    newScoreRow.append($("<td/>").text(scoreSnapshot.val().kRevistas));
+    newScoreRow.append($("<td/>").text(scoreSnapshot.val().lFolletos));
+    newScoreRow.append($("<td/>").text(scoreSnapshot.val().mCursosBiblicos));
+    newScoreRow.append($("<td/>").text(scoreSnapshot.val().qAfluencia));
+    newScoreRow.append($("<td/>").text(scoreSnapshot.val().pConversaciones));
+    newScoreRow.append($("<td/>").text(scoreSnapshot.val().nComentarios));
+    newScoreRow.append($("<td/>").text(scoreSnapshot.val().oExperiencias));
+
+    htmlForPath[scoreSnapshot.key()] = newScoreRow;
+
+    if (prevScoreName === null) {
+      $("#leaderboardTable").append(newScoreRow);
+    }
+    else {
+      var lowerScoreRow = htmlForPath[prevScoreName];
+      lowerScoreRow.before(newScoreRow);
+    }
+  }
+
+  function handleScoreRemoved(scoreSnapshot) {
+    var removedScoreRow = htmlForPath[scoreSnapshot.key()];
+    removedScoreRow.remove();
+    delete htmlForPath[scoreSnapshot.key()];
+  }
+
+  var scoreListView = scoreListRef.limitToLast(LEADERBOARD_SIZE);
+
+  scoreListView.on('child_added', function (newScoreSnapshot, prevScoreName) {
+    handleScoreAdded(newScoreSnapshot, prevScoreName);
+  });
+
+  scoreListView.on('child_removed', function (oldScoreSnapshot) {
+    handleScoreRemoved(oldScoreSnapshot);
+  });
+
+  var changedCallback = function (scoreSnapshot, prevScoreName) {
+    handleScoreRemoved(scoreSnapshot);
+    handleScoreAdded(scoreSnapshot, prevScoreName);
+  };
+  scoreListView.on('child_moved', changedCallback);
+  scoreListView.on('child_changed', changedCallback);
+  }
+
+</script>
+
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-168260241-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-168260241-1');
+</script>
+
+<body onload="Start()">
+</html>
